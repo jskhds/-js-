@@ -3,7 +3,7 @@
   <searchInput></searchInput>
   <!-- 结束搜索框 -->
   <!-- 02-轮播图开始 -->
-<!-- 
+<!--  
   轮播图绑定 js 中 swiperList
   1.swiper 存在默认宽高 100% * 150px
   2.image 320px * 240px
@@ -21,7 +21,7 @@
   wx:for="{{swiperList}}"
   wx:key="goods_id">
   <!-- navigator 导航栏有跳转功能 -->
-    <navigator> 
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}"> 
        <image class="" src="{{item.image_src}}" mode="widthFix" > </image>
     </navigator>
   </swiper-item>    
@@ -29,14 +29,50 @@
 </view>
 <!-- 02-轮播图结束 -->
 <!-- 03-分类导航栏开始 -->
-<!-- <view class="index_cate" >
+<view class="index_cate" >
   <navigator
+  url="/pages/category/index"
+  open-type="switchTab"
   wx:for="{{cateList}}"
   wx:key="name">
-    <image class="" src="{{item.image_sre}}" mode="widthFix">
-      
-    </image>
+    <image class="" src="{{item.image_src}}" mode="widthFix">     </image>
   </navigator>
-</view> -->
+</view>
 <!-- 03-分类导航栏结束 -->
+<!-- 04 电梯开始 -->
+<!-- 
+  两层循环的说明
+  api接口点进去看以后，标题和内容 两者同层级 但一个是对象（可以直接拿到数据），一个是对象数组（数组拿到之后，再找对应的对象，拿对象里的数据）
+  要拿到标题的图片 只需要floorlist循环 就可以获得 地址相当于 floorList.item
+  但是拿到内容的图片 需要在内容的数组(里面有好几个对象)里面再循环一次 
+  因为它的图片地址相当于 floorList.item1(也就是floor_title和product_list这一级).item2
+ -->
+<view class="index_floor">
+  <view class="floor_group"
+  wx:for="{{floorList}}"
+  wx:for-item="item1"
+  wx:for-index="index1"
+  wx:key="floor_title">
+      <!-- 标题 外层循环--> 
+      <view class="floor_title">
+        <image mode="widthFix" src="{{item1.floor_title.image_src}}"></image>
+      </view>
+  <view class="floor_list">
+      <!-- 内容 内层循环  -->
+      <navigator 
+      
+       wx:for="{{item1.product_list}}"
+       wx:for-item="item2"
+       wx:for-index="index2"
+       wx:key="name"
+       url="/pages/goods_list/index?cid=1311">
+       <!-- 三元表达式 只有第一张用widthFix -->
+      <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}"></image>
+
+      </navigator>
+  </view>
+    
+  </view>
+</view>
+<!-- 04 电梯结束 -->
 </view>

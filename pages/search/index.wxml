@@ -1,2 +1,14 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="search_row">
+    <input value="{{inputValue}}" placeholder="请输入搜索商品" bindinput="handleInput"></input>
+    <!-- 控制标签的显示与隐藏 频繁显示与隐藏 用hidden -->
+    <button hidden="{{!isFocus}}" bindtap="handleCancel">取消</button>
+</view>
+<view class="search_content">
+    <!-- 传入goods_id 可以跳转到 商品详情 -->
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+    class="search_item"
+    wx:for="{{goods}}"
+    wx:key="goods_id">
+      {{item.goods_name}}
+    </navigator>   
+</view>

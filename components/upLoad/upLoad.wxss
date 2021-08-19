@@ -1,0 +1,19 @@
+.upload_img_wrap {
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+}
+.upload_img_wrap icon {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -10%;
+  right: -10%;
+}
+.upload_img_wrap image {
+  right: 0;
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 15rpx;
+}

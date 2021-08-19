@@ -1,0 +1,63 @@
+// 先设置页面高度为100%
+page{
+    height: 100%;
+
+}
+.index_cates{
+    height: 100%;
+    .cates_container{
+        // 视口的高（不包括tabar）减去 头部搜索的高
+        height:~' calc( 100vh - 90rpx )';
+        // 修改为伸缩盒子
+        display: flex;
+       .leftMenuList{
+        //    flex 的子项 高度为100%
+        flex: 2;
+       
+        .menu{
+            // 如果 height: 100%; 那么一个item（比如说大家电）就会占据整个leftMenuList的高度
+            height: 80rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30rpx;
+           
+        }
+        .active{
+            color: #ffb6b9;
+        }
+       } 
+       .rightContent{
+        flex: 5;
+        .content{            
+            .content_title{
+                    height: 80rpx;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                .delimiter{
+                    color: #ccc;
+                    padding: 0 10rpx;
+                }
+                .title{
+                    
+                }
+            }
+            .content_list{
+                display: flex;
+                flex-wrap: wrap;
+                navigator{
+                    width: 33.33%;
+                    text-align: center;
+                    image{
+                        width: 50%;
+                    }
+                    .goods_name{}
+                }
+            }
+        }
+    
+    }
+    }  
+       
+}

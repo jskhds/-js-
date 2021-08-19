@@ -1,1 +1,47 @@
-/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.index_cates {
+  height: 100%;
+}
+.index_cates .cates_container {
+  height:  calc( 100vh - 90rpx );
+  display: flex;
+}
+.index_cates .cates_container .leftMenuList {
+  flex: 2;
+}
+.index_cates .cates_container .leftMenuList .menu {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.index_cates .cates_container .leftMenuList .active {
+  color: #ffb6b9;
+}
+.index_cates .cates_container .rightContent {
+  flex: 5;
+}
+.index_cates .cates_container .rightContent .content .content_title {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index_cates .cates_container .rightContent .content .content_title .delimiter {
+  color: #ccc;
+  padding: 0 10rpx;
+}
+.index_cates .cates_container .rightContent .content .content_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.index_cates .cates_container .rightContent .content .content_list navigator {
+  width: 33.33%;
+  text-align: center;
+}
+.index_cates .cates_container .rightContent .content .content_list navigator image {
+  width: 50%;
+}

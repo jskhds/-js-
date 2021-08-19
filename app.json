@@ -28,8 +28,8 @@
     "selectedColor": "#e72b46",
     "backgroundColor": "",
     "position": "bottom",
-    "borderStyle": "black",
-    "list": [
+    "borderStyle": "black", 
+    "list": [ 
       {
         "pagePath": "pages/index/index",
         "text": "首页",
@@ -59,6 +59,6 @@
   },
   
     
-  "style": "v2",
+ 
   "sitemapLocation": "sitemap.json"
 }

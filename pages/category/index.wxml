@@ -1,2 +1,50 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+  
+  <view class="index_cates">
+      <searchInput></searchInput>
+      <view class="cates_container">
+          <!-- 左边菜单栏 -->
+        <scroll-view class="leftMenuList" scroll-y>
+            <view class="menu  {{index===currentIndex?'active':''}}"           
+            wx:for="{{leftMenuList}}"
+            wx:key="cat_id"
+            bindtap="handleItemChange"
+            data-index="{{index}}">
+            <!--data-index="{{index}}" 这句话的作用是 给dataset中加入index  -->
+            {{item}}
+            </view>
+        </scroll-view>
+        
+
+
+          
+          <!-- 右边数据栏 -->
+          <scroll-view  scroll-top="{{scrollTop}}" scroll-y class="rightContent">
+              <view class="content"
+              wx:for="{{rightContentList}}"
+              wx:for-index="index1"
+              wx:for-item="item1">
+                  <!-- 分成两层 一层标题 一层内容 -->
+                  <!-- 标题 -->
+                  <view class="content_title">
+                        <text class="delimiter">/</text>  
+                        <text class="title">{{item1.cat_name}}</text>                   
+                        <text class="delimiter">/</text>                     
+                  </view>
+                  <!-- 内容 -->
+                  <view class="content_list">
+                  <navigator 
+                wx:for="{{item1.children}}"
+                wx:for-index="index2"
+                wx:for-item="item2"
+                wx:key="cat_id"
+                url="/pages/goods_list/index?cid={{item2.cat_id}}">
+                <image src="{{item2.cat_icon}}" mode="widthFix"/>
+                <view class="goods_name">{{item2.cat_name}}</view>
+                  
+                </navigator>
+                </view>
+                </view>
+        </scroll-view>
+      </view>
+  </view>

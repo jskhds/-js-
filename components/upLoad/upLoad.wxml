@@ -1,0 +1,10 @@
+<view class="upload_img_wrap">
+    <image src="{{src}}" mode="widthFix" >        
+    </image>
+  <icon type="clear" size="24" color="red">
+      
+  </icon>
+    
+  
+      
+</view>
